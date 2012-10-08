@@ -14,6 +14,7 @@
 @end
 
 @implementation DetailViewController
+@synthesize noteDate, restName, introduction, photo, address;
 
 #pragma mark - Managing the detail item
 
@@ -36,7 +37,15 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"timeStamp"] description];
+        //self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"timeStamp"] description];
+        self.noteDate.text =
+            [[self.detailItem valueForKey:@"noteDate"] description];
+        self.restName.text =
+            [[self.detailItem valueForKey:@"restName"] description];
+        self.introduction.text =
+            [[self.detailItem valueForKey:@"introduction"] description];
+       self.address.text =
+            [[self.detailItem valueForKey:@"address"] description];
     }
 }
 
@@ -68,5 +77,7 @@
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     self.masterPopoverController = nil;
 }
+
+
 
 @end
