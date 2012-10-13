@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CreateViewController.h"
 
-@interface takePhotoViewController : UIViewController
+@interface TakePhotoViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+{
+    @private
+//    UIImage *photoImage;
+}
+
+@property (strong, nonatomic) id caller;
+@property (nonatomic, strong) UIImagePickerController *imagePicker;
+@property (nonatomic, strong) UIImage *photoImage;
+
+@property (nonatomic, weak) IBOutlet UIImageView *photoImageView;
 
 @end

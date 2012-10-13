@@ -7,9 +7,9 @@
 //
 
 #import "CreateViewController.h"
-#import "AppDelegate.h"
 
 @interface CreateViewController ()
+
 
 @end
 
@@ -31,7 +31,15 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    self.noteDate.text = [[NSDate date] description];
+    NSDate *now = [NSDate date];
+    NSDateFormatter *dateFormater = [[NSDateFormatter alloc] init];
+    [dateFormater setDateFormat:@"YYYY/MM/dd"];
+    NSString *today = [dateFormater stringFromDate:now];  //date data
+    
+    self.noteDate.text = today;
+    if (self.photoImage != nil) {
+        self.photoImageView.image = self.photoImage;
+    }
 }
 
 - (void)viewDidLoad
@@ -49,6 +57,12 @@
                                                  name:UIKeyboardDidHideNotification
                                                object:nil];
     
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    NSLog(@"Unregistering for keyboard events");
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -90,7 +104,10 @@
 
 - (IBAction)takePhotoButtonPressed:(id)sender {
     
-    [self performSegueWithIdentifier:@"takePhoto" sender:nil];
+//    [self performSegueWithIdentifier:@"takePhoto" sender:nil];
+    
+    TakePhotoViewController *takePhotoViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"takePhoto"];
+    [self presentViewController:takePhotoViewController animated:YES completion:nil];
 }
 
 #pragma mark - Keyboard Handdling
@@ -99,7 +116,6 @@
 {
     [sender resignFirstResponder];
 }
-
 
 - (void)keyboardIsShown:(NSNotification *) notify
 {

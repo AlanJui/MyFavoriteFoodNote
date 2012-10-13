@@ -10,7 +10,9 @@
 		5D470079162277A000B38BA2 /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D470078162277A000B38BA2 /* Food.m */; };
 		5D47007C16227F9700B38BA2 /* CreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D47007B16227F9700B38BA2 /* CreateViewController.m */; };
 		5D4702371622CB0600B38BA2 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D4702361622CB0600B38BA2 /* camera.png */; };
-		5D47023A1622D53800B38BA2 /* takePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4702391622D53800B38BA2 /* takePhotoViewController.m */; };
+		5DED21501623AD93009F5F69 /* NameCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DED214F1623AD93009F5F69 /* NameCard.png */; };
+		5DF0CCDE162322D100B54749 /* UpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF0CCDD162322D100B54749 /* UpdateViewController.m */; };
+		5DF412CF1625681400D87552 /* TakePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF412CD1625681400D87552 /* TakePhotoViewController.m */; };
 		5DF63B7016212A110077EDC8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF63B6F16212A110077EDC8 /* UIKit.framework */; };
 		5DF63B7216212A110077EDC8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF63B7116212A110077EDC8 /* Foundation.framework */; };
 		5DF63B7416212A110077EDC8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF63B7316212A110077EDC8 /* CoreGraphics.framework */; };
@@ -34,8 +36,11 @@
 		5D47007A16227F9700B38BA2 /* CreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateViewController.h; sourceTree = "<group>"; };
 		5D47007B16227F9700B38BA2 /* CreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateViewController.m; sourceTree = "<group>"; };
 		5D4702361622CB0600B38BA2 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
-		5D4702381622D53800B38BA2 /* takePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = takePhotoViewController.h; sourceTree = "<group>"; };
-		5D4702391622D53800B38BA2 /* takePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = takePhotoViewController.m; sourceTree = "<group>"; };
+		5DED214F1623AD93009F5F69 /* NameCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NameCard.png; sourceTree = "<group>"; };
+		5DF0CCDC162322D100B54749 /* UpdateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateViewController.h; sourceTree = "<group>"; };
+		5DF0CCDD162322D100B54749 /* UpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateViewController.m; sourceTree = "<group>"; };
+		5DF412CD1625681400D87552 /* TakePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakePhotoViewController.m; sourceTree = "<group>"; };
+		5DF412CE1625681400D87552 /* TakePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakePhotoViewController.h; sourceTree = "<group>"; };
 		5DF63B6B16212A110077EDC8 /* MyFavoriteFoodNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFavoriteFoodNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DF63B6F16212A110077EDC8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5DF63B7116212A110077EDC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -77,6 +82,7 @@
 		5D4702351622CAEC00B38BA2 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				5DED214F1623AD93009F5F69 /* NameCard.png */,
 				5D4702361622CB0600B38BA2 /* camera.png */,
 			);
 			name = Icons;
@@ -113,6 +119,8 @@
 		5DF63B7716212A110077EDC8 /* MyFavoriteFoodNote */ = {
 			isa = PBXGroup;
 			children = (
+				5DF412CD1625681400D87552 /* TakePhotoViewController.m */,
+				5DF412CE1625681400D87552 /* TakePhotoViewController.h */,
 				5DF63B8016212A110077EDC8 /* AppDelegate.h */,
 				5DF63B8116212A110077EDC8 /* AppDelegate.m */,
 				5DF63B8916212A110077EDC8 /* MainStoryboard_iPhone.storyboard */,
@@ -120,10 +128,10 @@
 				5DF63B9216212A110077EDC8 /* MasterViewController.h */,
 				5DF63B9316212A110077EDC8 /* MasterViewController.m */,
 				5DF63B9516212A110077EDC8 /* DetailViewController.h */,
-				5D4702381622D53800B38BA2 /* takePhotoViewController.h */,
-				5D4702391622D53800B38BA2 /* takePhotoViewController.m */,
 				5D47007A16227F9700B38BA2 /* CreateViewController.h */,
 				5D47007B16227F9700B38BA2 /* CreateViewController.m */,
+				5DF0CCDC162322D100B54749 /* UpdateViewController.h */,
+				5DF0CCDD162322D100B54749 /* UpdateViewController.m */,
 				5DF63B9616212A110077EDC8 /* DetailViewController.m */,
 				5DF63B8F16212A110077EDC8 /* MyFavoriteFoodNote.xcdatamodeld */,
 				5DF63B7816212A110077EDC8 /* Supporting Files */,
@@ -214,6 +222,7 @@
 				5DF63B8B16212A110077EDC8 /* MainStoryboard_iPhone.storyboard in Resources */,
 				5DF63B8E16212A110077EDC8 /* MainStoryboard_iPad.storyboard in Resources */,
 				5D4702371622CB0600B38BA2 /* camera.png in Resources */,
+				5DED21501623AD93009F5F69 /* NameCard.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,7 +240,8 @@
 				5DF63B9716212A110077EDC8 /* DetailViewController.m in Sources */,
 				5D470079162277A000B38BA2 /* Food.m in Sources */,
 				5D47007C16227F9700B38BA2 /* CreateViewController.m in Sources */,
-				5D47023A1622D53800B38BA2 /* takePhotoViewController.m in Sources */,
+				5DF0CCDE162322D100B54749 /* UpdateViewController.m in Sources */,
+				5DF412CF1625681400D87552 /* TakePhotoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

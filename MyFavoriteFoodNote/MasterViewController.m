@@ -7,8 +7,8 @@
 //
 
 #import "MasterViewController.h"
-
 #import "DetailViewController.h"
+#import "UpdateViewController.h"
 
 @interface MasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -81,7 +81,9 @@
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }
-    }   
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        
+    }
 }
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
@@ -92,9 +94,29 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+/*****
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         self.detailViewController.detailItem = object;
+    }
+ *****/
+    NSLog(@"被壓下去的是第%d個區塊的第%d筆資料",indexPath.section, indexPath.row);
+    
+
+    NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+ 
+    if (self.editing) {   // 更改資料
+        NSLog(@"Editing Item");
+        self.updateViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"UpdateItem"];
+        self.updateViewController.detailItem = object;
+        [self.navigationController pushViewController:self.updateViewController
+                                             animated:YES];
+    } else {              // 瀏覽資料明細
+        NSLog(@"Viewing detail of Item");
+        
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+            self.detailViewController.detailItem = object;
+        }
     }
 }
 
