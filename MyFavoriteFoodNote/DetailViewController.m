@@ -32,6 +32,16 @@
     }        
 }
 
+/*
+ * 將 NSDate 型態資料，轉換成 NSString 型態資料
+ */
+- (NSString *) convertDateToString:(NSDate *) date
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"YYYY/MM/dd"];
+    return [dateFormatter stringFromDate:date];
+}
+
 - (void)configureView
 {
     // Update the user interface for the detail item.
@@ -39,7 +49,7 @@
     if (self.detailItem) {
         //self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"timeStamp"] description];
         self.noteDate.text =
-            [[self.detailItem valueForKey:@"noteDate"] description];
+            [self convertDateToString:[self.detailItem valueForKey:@"noteDate"]];
         self.restName.text =
             [[self.detailItem valueForKey:@"restName"] description];
         self.introduction.text =

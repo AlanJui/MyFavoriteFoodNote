@@ -128,11 +128,11 @@
 				5DF63B9216212A110077EDC8 /* MasterViewController.h */,
 				5DF63B9316212A110077EDC8 /* MasterViewController.m */,
 				5DF63B9516212A110077EDC8 /* DetailViewController.h */,
+				5DF63B9616212A110077EDC8 /* DetailViewController.m */,
 				5D47007A16227F9700B38BA2 /* CreateViewController.h */,
 				5D47007B16227F9700B38BA2 /* CreateViewController.m */,
 				5DF0CCDC162322D100B54749 /* UpdateViewController.h */,
 				5DF0CCDD162322D100B54749 /* UpdateViewController.m */,
-				5DF63B9616212A110077EDC8 /* DetailViewController.m */,
 				5DF63B8F16212A110077EDC8 /* MyFavoriteFoodNote.xcdatamodeld */,
 				5DF63B7816212A110077EDC8 /* Supporting Files */,
 			);
