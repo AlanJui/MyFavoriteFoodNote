@@ -14,7 +14,10 @@
 @end
 
 @implementation CreateViewController
+@synthesize childViewController;
+@synthesize photoImage;
 @synthesize scrollView;
+
 @synthesize noteDate;
 @synthesize restName;
 @synthesize introduction;
@@ -31,12 +34,15 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+/***
     NSDate *now = [NSDate date];
     NSDateFormatter *dateFormater = [[NSDateFormatter alloc] init];
     [dateFormater setDateFormat:@"YYYY/MM/dd"];
     NSString *today = [dateFormater stringFromDate:now];  //date data
     
     self.noteDate.text = today;
+***/ 
+    self.noteDate.text = [MyAppUtility convertDateToString:[NSDate date]];
     if (self.photoImage != nil) {
         self.photoImageView.image = self.photoImage;
     }
@@ -107,6 +113,7 @@
 //    [self performSegueWithIdentifier:@"takePhoto" sender:nil];
     
     TakePhotoViewController *takePhotoViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"takePhoto"];
+    takePhotoViewController.caller = self;
     [self presentViewController:takePhotoViewController animated:YES completion:nil];
 }
 

@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D0F841B162A69B3004A36C4 /* MyAppUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0F841A162A69B3004A36C4 /* MyAppUtility.m */; };
 		5D470079162277A000B38BA2 /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D470078162277A000B38BA2 /* Food.m */; };
 		5D47007C16227F9700B38BA2 /* CreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D47007B16227F9700B38BA2 /* CreateViewController.m */; };
 		5D4702371622CB0600B38BA2 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D4702361622CB0600B38BA2 /* camera.png */; };
+		5D80F0CC162D0658002CA4A5 /* myMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D80F0CB162D0658002CA4A5 /* myMap.png */; };
 		5DED21501623AD93009F5F69 /* NameCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DED214F1623AD93009F5F69 /* NameCard.png */; };
 		5DF0CCDE162322D100B54749 /* UpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF0CCDD162322D100B54749 /* UpdateViewController.m */; };
 		5DF412CF1625681400D87552 /* TakePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF412CD1625681400D87552 /* TakePhotoViewController.m */; };
@@ -31,11 +33,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D0F8419162A69B3004A36C4 /* MyAppUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAppUtility.h; sourceTree = "<group>"; };
+		5D0F841A162A69B3004A36C4 /* MyAppUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAppUtility.m; sourceTree = "<group>"; };
 		5D470077162277A000B38BA2 /* Food.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Food.h; sourceTree = "<group>"; };
 		5D470078162277A000B38BA2 /* Food.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Food.m; sourceTree = "<group>"; };
 		5D47007A16227F9700B38BA2 /* CreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateViewController.h; sourceTree = "<group>"; };
 		5D47007B16227F9700B38BA2 /* CreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateViewController.m; sourceTree = "<group>"; };
 		5D4702361622CB0600B38BA2 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
+		5D80F0CB162D0658002CA4A5 /* myMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myMap.png; sourceTree = "<group>"; };
 		5DED214F1623AD93009F5F69 /* NameCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NameCard.png; sourceTree = "<group>"; };
 		5DF0CCDC162322D100B54749 /* UpdateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateViewController.h; sourceTree = "<group>"; };
 		5DF0CCDD162322D100B54749 /* UpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateViewController.m; sourceTree = "<group>"; };
@@ -88,6 +93,14 @@
 			name = Icons;
 			sourceTree = "<group>";
 		};
+		5D80F0C9162D062E002CA4A5 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				5D80F0CB162D0658002CA4A5 /* myMap.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		5DF63B6016212A100077EDC8 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +148,8 @@
 				5DF0CCDD162322D100B54749 /* UpdateViewController.m */,
 				5DF63B8F16212A110077EDC8 /* MyFavoriteFoodNote.xcdatamodeld */,
 				5DF63B7816212A110077EDC8 /* Supporting Files */,
+				5D0F8419162A69B3004A36C4 /* MyAppUtility.h */,
+				5D0F841A162A69B3004A36C4 /* MyAppUtility.m */,
 			);
 			path = MyFavoriteFoodNote;
 			sourceTree = "<group>";
@@ -142,6 +157,7 @@
 		5DF63B7816212A110077EDC8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5D80F0C9162D062E002CA4A5 /* Images */,
 				5D4702351622CAEC00B38BA2 /* Icons */,
 				5DF63BA016212B420077EDC8 /* DomainModel */,
 				5DF63B7916212A110077EDC8 /* MyFavoriteFoodNote-Info.plist */,
@@ -223,6 +239,7 @@
 				5DF63B8E16212A110077EDC8 /* MainStoryboard_iPad.storyboard in Resources */,
 				5D4702371622CB0600B38BA2 /* camera.png in Resources */,
 				5DED21501623AD93009F5F69 /* NameCard.png in Resources */,
+				5D80F0CC162D0658002CA4A5 /* myMap.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +259,7 @@
 				5D47007C16227F9700B38BA2 /* CreateViewController.m in Sources */,
 				5DF0CCDE162322D100B54749 /* UpdateViewController.m in Sources */,
 				5DF412CF1625681400D87552 /* TakePhotoViewController.m in Sources */,
+				5D0F841B162A69B3004A36C4 /* MyAppUtility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

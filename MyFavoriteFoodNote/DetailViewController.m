@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "MyAppUtility.h"
 
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -32,16 +33,6 @@
     }        
 }
 
-/*
- * 將 NSDate 型態資料，轉換成 NSString 型態資料
- */
-- (NSString *) convertDateToString:(NSDate *) date
-{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"YYYY/MM/dd"];
-    return [dateFormatter stringFromDate:date];
-}
-
 - (void)configureView
 {
     // Update the user interface for the detail item.
@@ -49,12 +40,12 @@
     if (self.detailItem) {
         //self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"timeStamp"] description];
         self.noteDate.text =
-            [self convertDateToString:[self.detailItem valueForKey:@"noteDate"]];
+            [MyAppUtility convertDateToString:[self.detailItem valueForKey:@"noteDate"]];
         self.restName.text =
             [[self.detailItem valueForKey:@"restName"] description];
         self.introduction.text =
             [[self.detailItem valueForKey:@"introduction"] description];
-       self.address.text =
+        self.address.text =
             [[self.detailItem valueForKey:@"address"] description];
     }
 }

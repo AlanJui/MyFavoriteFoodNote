@@ -11,7 +11,9 @@
 #import "Food.h"
 
 @interface UpdateViewController ()
-
+{
+    BOOL keyboardIsShown;
+}
 @end
 
 @implementation UpdateViewController
@@ -33,10 +35,28 @@
 	// Do any additional setup after loading the view.
 
     Food *foodNote = self.detailItem;
-    self.noteDate.text = [foodNote.noteDate description];
+    //self.noteDate.text = [foodNote.noteDate description];
+    self.noteDate.text = [MyAppUtility convertDateToString:foodNote.noteDate];
     self.restName.text = foodNote.restName;
     self.introduction.text = foodNote.introduction;
     self.address.text = foodNote.address;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardIsShown:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardIsHidden:)
+                                                 name:UIKeyboardDidHideNotification
+                                               object:nil];
+
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    NSLog(@"Unregistering for keyboard events");
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,14 +90,45 @@
         abort();
     }
     ***/
+    NSDate *date = [[NSDate alloc] init];
+    date = [MyAppUtility convertStringToDate:self.noteDate.text];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-/*
--(BOOL) textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
-    return YES;
+#pragma mark - Keyboard Handdling
+
+- (IBAction)doneButtonTapped:(id)sender
+{
+    [sender resignFirstResponder];
 }
-*/
+
+- (void)keyboardIsShown:(NSNotification *) notify
+{
+    if (keyboardIsShown) {
+        return;
+    }
+    keyboardIsShown = YES;
+    
+    NSDictionary *info = [notify userInfo];
+    CGSize keyboardSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    CGRect newRectFrame = self.scrollView.frame;
+    newRectFrame.size.height -= keyboardSize.height;
+    self.scrollView.frame = newRectFrame;
+}
+
+- (void)keyboardIsHidden:(NSNotification *) notify
+{
+    if (keyboardIsShown) {
+        return;
+    }
+    keyboardIsShown = NO;
+    
+    NSDictionary *info = [notify userInfo];
+    CGSize keyboardSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    CGRect newRectFrame = self.scrollView.frame;
+    newRectFrame.size.height += keyboardSize.height;
+    self.scrollView.frame = newRectFrame;
+}
+
 
 @end

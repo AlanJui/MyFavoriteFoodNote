@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CreateViewController.h"
 #import "AppDelegate.h"
 #import "TakePhotoViewController.h"
+#import "MyAppUtility.h"
 
 @interface CreateViewController : UIViewController <UITextFieldDelegate>
 {
@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *address;
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 
+@property (strong, nonatomic) UIViewController *childViewController;
 @property (strong, nonatomic) UIImage *photoImage;
 
 - (IBAction)saveButtonPressed:(id)sender;

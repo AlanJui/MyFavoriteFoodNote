@@ -103,9 +103,6 @@
         
         self.photoImageView.image = modifiedImage;
         
-        CreateViewController *parentViewController = self.caller;
-        parentViewController.photoImage = modifiedImage;
-        
     } else {
         NSString *tempFilePath = [[info objectForKey:UIImagePickerControllerMediaURL] path];
         NSLog(@"Video at: %@", tempFilePath);
@@ -182,10 +179,11 @@
     [[NSFileManager defaultManager] removeItemAtPath:videoPath error:nil];
 }
 
-- (IBAction)doneButtonPressed:(id)sender
-{
-    //[self.navigationController popViewControllerAnimated:YES];
+- (IBAction)returnButtonTapped:(id)sender {
+    
+    CreateViewController *parentViewController = self.caller;
+    parentViewController.photoImage = photoImageView.image;
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
 @end

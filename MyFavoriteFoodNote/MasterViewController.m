@@ -33,7 +33,8 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
-    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+//    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    self.detailViewController = (UpdateViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
 - (void)didReceiveMemoryWarning
@@ -100,7 +101,7 @@
         self.detailViewController.detailItem = object;
     }
  *****/
-    NSLog(@"被壓下去的是第%d個區塊的第%d筆資料",indexPath.section, indexPath.row);
+    NSLog(@"使用者選擇了：第%d個區塊的第%d筆資料",indexPath.section, indexPath.row);
     
 
     NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
