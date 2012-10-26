@@ -53,6 +53,9 @@
         
         NSLog(@"_noteDate.text = %@", _noteDate.text);
         NSLog(@"_titleName.text = %@", _titleName.text);
+        NSLog(@"_introduction.text = %@", _introduction.text);
+        NSLog(@"_storeName.text = %@", _storeName.text);
+        NSLog(@"_address.text = %@", _address.text);    
     }
 }
 
@@ -116,16 +119,22 @@
 
 - (IBAction)saveButtonPressed:(id)sender
 {
-    /****
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    NSManagedObjectContext *context = appDelegate.managedObjectContext;
-    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Food" inManagedObjectContext:context];
- 
-    //[newManagedObject setValue:noteDate.text forKey:@"noteDate"];
-    [newManagedObject setValue:[NSDate date] forKey:@"noteDate"];
-    [newManagedObject setValue:self.restName.text forKey:@"restName"];
-    [newManagedObject setValue:self.introduction.text forKey:@"introduction"];
-    [newManagedObject setValue:self.address.text forKey:@"address"];
+    NSLog(@"_noteDate.text = %@", _noteDate.text);
+    NSLog(@"_titleName.text = %@", _titleName.text);
+    NSLog(@"_introduction.text = %@", _introduction.text);
+    NSLog(@"_storeName.text = %@", _storeName.text);
+    NSLog(@"_address.text = %@", _address.text);
+
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:self.indexPath];
+    //    NSLog(@"object before = %@", [object description]);
+    
+    [object setValue:[MyAppUtility convertStringToDate:_noteDate.text] forKey:@"noteDate"];
+    [object setValue:_titleName.text forKey:@"title"];
+    [object setValue:_introduction.text forKey:@"introduction"];
+    [object setValue:_storeName.text forKey:@"storeName"];
+    [object setValue:_address.text forKey:@"address"];
+    //    NSLog(@"object after = %@", [object description]);
     
     // Save the context.
     NSError *error = nil;
@@ -133,13 +142,18 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
-    ***/
-    NSDate *date = [[NSDate alloc] init];
-    date = [MyAppUtility convertStringToDate:self.noteDate.text];
+    
+  
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Keyboard Handdling
+
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 
 - (IBAction)doneButtonTapped:(id)sender
 {

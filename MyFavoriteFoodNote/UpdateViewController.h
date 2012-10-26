@@ -11,6 +11,8 @@
 @interface UpdateViewController : UIViewController <UITextFieldDelegate, UISplitViewControllerDelegate>
 
 @property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSIndexPath *indexPath;
 
 @property (weak, nonatomic) IBOutlet UILabel *noteDate;
 @property (weak, nonatomic) IBOutlet UITextField *titleName;

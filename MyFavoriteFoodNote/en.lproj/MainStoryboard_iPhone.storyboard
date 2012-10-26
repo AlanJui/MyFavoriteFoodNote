@@ -175,7 +175,7 @@
                                         <rect key="frame" x="102" y="327" width="198" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <outlet property="delegate" destination="21" id="3P3-bc-9Ri"/>
                                         </connections>
@@ -204,13 +204,13 @@
                         <outlet property="introduction" destination="YzA-qA-Xbk" id="vXY-QP-Atg"/>
                         <outlet property="noteDate" destination="tzM-Tx-oBh" id="uNs-34-eWD"/>
                         <outlet property="photo" destination="T6s-Cm-07K" id="eTJ-cH-aIm"/>
-                        <outlet property="storeName" destination="4dL-TL-a4c" id="gQm-az-tCV"/>
-                        <outlet property="titleName" destination="cNI-qu-xhC" id="L6w-gf-W8G"/>
+                        <outlet property="storeName" destination="4dL-TL-a4c" id="ld2-vA-rLA"/>
+                        <outlet property="titleName" destination="cNI-qu-xhC" id="ZJB-Aa-818"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1356" y="316"/>
+            <point key="canvasLocation" x="1340" y="316"/>
         </scene>
         <!--Create View Controller - CreateView-->
         <scene sceneID="rz9-Kv-prA">
@@ -309,6 +309,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Tco-vt-4Ik" id="eyW-F3-jvr"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="建檔日期" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IPC-Mt-BxW">
                                         <rect key="frame" x="102" y="375" width="91" height="21"/>
@@ -451,6 +454,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TakePhotoViewController.h"/>
             <relationships>
                 <relationship kind="action" name="returnButtonTapped:"/>
+                <relationship kind="action" name="takePhoto:"/>
                 <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
             </relationships>
         </class>
@@ -458,6 +462,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UpdateViewController.h"/>
             <relationships>
                 <relationship kind="action" name="doneButtonTapped:"/>
+                <relationship kind="action" name="saveButtonPressed:"/>
                 <relationship kind="outlet" name="address" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="introduction" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="noteDate" candidateClass="UILabel"/>
