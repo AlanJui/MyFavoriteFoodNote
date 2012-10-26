@@ -14,14 +14,9 @@
 @end
 
 @implementation CreateViewController
-@synthesize childViewController;
 @synthesize photoImage;
 @synthesize scrollView;
 
-@synthesize noteDate;
-@synthesize restName;
-@synthesize introduction;
-@synthesize address;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,27 +27,16 @@
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-/***
-    NSDate *now = [NSDate date];
-    NSDateFormatter *dateFormater = [[NSDateFormatter alloc] init];
-    [dateFormater setDateFormat:@"YYYY/MM/dd"];
-    NSString *today = [dateFormater stringFromDate:now];  //date data
-    
-    self.noteDate.text = today;
-***/ 
-    self.noteDate.text = [MyAppUtility convertDateToString:[NSDate date]];
-    if (self.photoImage != nil) {
-        self.photoImageView.image = self.photoImage;
-    }
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+   
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+/*****
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardIsShown:)
                                                  name:UIKeyboardDidShowNotification
@@ -62,13 +46,19 @@
                                              selector:@selector(keyboardIsHidden:)
                                                  name:UIKeyboardDidHideNotification
                                                object:nil];
-    
+*****/    
+    self.noteDate.text = [MyAppUtility convertDateToString:[NSDate date]];
+    if (self.photoImage != nil) {
+        self.photoImageView.image = self.photoImage;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+/*****
     NSLog(@"Unregistering for keyboard events");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+ *****/
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,7 +71,7 @@
 
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     NSManagedObjectContext *context = appDelegate.managedObjectContext;
-    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Food" inManagedObjectContext:context];
+    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"GoodNews" inManagedObjectContext:context];
 /***********
     [newManagedObject setValue:[NSDate date] forKey:@"noteDate"];
     [newManagedObject setValue:@"愛家連鎖餐廳" forKey:@"restName"];
@@ -91,9 +81,11 @@
     
     //[newManagedObject setValue:noteDate.text forKey:@"noteDate"];
     [newManagedObject setValue:[NSDate date] forKey:@"noteDate"];
-    [newManagedObject setValue:restName.text forKey:@"restName"];
-    [newManagedObject setValue:introduction.text forKey:@"introduction"];
-    [newManagedObject setValue:address.text forKey:@"address"];
+    [newManagedObject setValue:_titleName.text forKey:@"title"];
+    [newManagedObject setValue:_introduction.text forKey:@"introduction"];
+    
+    [newManagedObject setValue:_storeName.text forKey:@"storeName"];
+    [newManagedObject setValue:_address.text forKey:@"address"];
     
     // Save the context.
     NSError *error = nil;
@@ -119,9 +111,10 @@
 
 #pragma mark - Keyboard Handdling
 
-- (IBAction)doneButtonTapped:(id)sender
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
 {
-    [sender resignFirstResponder];
+    [textField resignFirstResponder];
+    return YES;
 }
 
 - (void)keyboardIsShown:(NSNotification *) notify
@@ -152,4 +145,9 @@
     self.scrollView.frame = newRectFrame;
 }
 
+- (void)viewDidUnload {
+    [self setTitle:nil];
+    [self setNoteDate:nil];
+    [super viewDidUnload];
+}
 @end

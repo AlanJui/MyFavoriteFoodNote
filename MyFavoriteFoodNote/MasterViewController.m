@@ -31,8 +31,10 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
+/*****
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+ *****/
 //    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     self.detailViewController = (UpdateViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
@@ -142,7 +144,7 @@
     // Edit the entity name as appropriate.
     //NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
     NSEntityDescription *entity =
-        [NSEntityDescription entityForName:@"Food"
+        [NSEntityDescription entityForName:@"GoodNews"
                     inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
@@ -239,15 +241,16 @@
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     //cell.textLabel.text = [[object valueForKey:@"timeStamp"] description];
-    cell.textLabel.text = [[object valueForKey:@"restName"] description];
+    cell.textLabel.text = [[object valueForKey:@"title"] description];
     cell.detailTextLabel.text = [[object valueForKey:@"noteDate"] description];
 }
 
+/******
 - (void)insertNewObject:(id)sender
 {
     [self performSegueWithIdentifier:@"insertNewItem" sender:nil];
     
-/*
+
     NSManagedObjectContext *context =
         [self.fetchedResultsController managedObjectContext];
     //NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
@@ -272,8 +275,9 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
-*/
+
 }
+*****/
 
 @end
 

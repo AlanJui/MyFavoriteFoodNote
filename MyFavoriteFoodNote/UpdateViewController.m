@@ -8,17 +8,53 @@
 
 #import "UpdateViewController.h"
 #import "AppDelegate.h"
-#import "Food.h"
+#import "GoodNews.h"
 
 @interface UpdateViewController ()
-{
-    BOOL keyboardIsShown;
-}
+@property (strong, nonatomic) UIPopoverController *masterPopoverController;
+- (void)configureView;
 @end
 
 @implementation UpdateViewController
-//@synthesize detailItem;
-//@synthesize noteDate, restName, introduction, address;
+
+- (void) setDetailItem:(id)newDetailItem
+{
+    if (_detailItem != newDetailItem) {
+        _detailItem = newDetailItem;
+        
+        // Update the view.
+//        [self configureView];
+    }
+    
+    if (self.masterPopoverController != nil) {
+        [self.masterPopoverController dismissPopoverAnimated:YES];
+    }
+}
+
+- (void)configureView
+{
+    // Update the user interface for the detail item.
+    
+    if (_detailItem) {
+        NSManagedObject *item = (NSManagedObject *) _detailItem;
+        NSLog(@"item = %@", [item description]);
+        
+        _noteDate.text = [MyAppUtility convertDateToString:[item valueForKey:@"noteDate"]];
+        _titleName.text = [item valueForKey:@"title"];
+        _introduction.text = [item valueForKey:@"introduction"];
+        _storeName.text = [item valueForKey:@"storeName"];
+        _address.text = [item valueForKey:@"address"];
+        
+        NSLog(@"_noteDate.text = %@", [MyAppUtility convertDateToString:[item valueForKey:@"noteDate"]]);
+        NSLog(@"_titleName.text = %@", [item valueForKey:@"title"]);
+        NSLog(@"_introduction.text = %@", [item valueForKey:@"introduction"]);
+        NSLog(@"_storeName.text = %@", [item valueForKey:@"storeName"]);
+        NSLog(@"_address.text = %@", [item valueForKey:@"address"]);
+        
+        NSLog(@"_noteDate.text = %@", _noteDate.text);
+        NSLog(@"_titleName.text = %@", _titleName.text);
+    }
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,14 +69,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-
-    Food *foodNote = self.detailItem;
-    //self.noteDate.text = [foodNote.noteDate description];
-    self.noteDate.text = [MyAppUtility convertDateToString:foodNote.noteDate];
-    self.restName.text = foodNote.restName;
-    self.introduction.text = foodNote.introduction;
-    self.address.text = foodNote.address;
-    
+/*****
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardIsShown:)
                                                  name:UIKeyboardDidShowNotification
@@ -50,13 +79,28 @@
                                              selector:@selector(keyboardIsHidden:)
                                                  name:UIKeyboardDidHideNotification
                                                object:nil];
-
+*****/
 }
 
-- (void)viewWillDisappear:(BOOL)animated
+- (void) viewWillAppear:(BOOL)animated
 {
+    [self configureView];
+    /*****
+    Food *foodNote = self.detailItem;
+    self.title.text = foodNote.title;
+    self.noteDate.text = [MyAppUtility convertDateToString:foodNote.noteDate];
+    self.restName.text = foodNote.restName;
+    self.introduction.text = foodNote.introduction;
+    self.address.text = foodNote.address;
+     *****/
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+/*****
     NSLog(@"Unregistering for keyboard events");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+ *****/
 }
 
 - (void)didReceiveMemoryWarning
@@ -102,6 +146,7 @@
     [sender resignFirstResponder];
 }
 
+/*****
 - (void)keyboardIsShown:(NSNotification *) notify
 {
     if (keyboardIsShown) {
@@ -129,6 +174,11 @@
     newRectFrame.size.height += keyboardSize.height;
     self.scrollView.frame = newRectFrame;
 }
+*****/
 
+- (void)viewDidUnload {
+    [self setNoteDate:nil];
+    [super viewDidUnload];
+}
 
 @end

@@ -1,21 +1,22 @@
 //
-//  Food.m
+//  GoodNews.m
 //  MyFavoriteFoodNote
 //
-//  Created by 居正中 on 12/10/8.
+//  Created by 居正中 on 12/10/25.
 //  Copyright (c) 2012年 CCC Studio. All rights reserved.
 //
 
-#import "Food.h"
+#import "GoodNews.h"
 
 
-@implementation Food
+@implementation GoodNews
 
 @dynamic address;
 @dynamic introduction;
 @dynamic mapLocation;
 @dynamic noteDate;
 @dynamic photo;
-@dynamic restName;
+@dynamic storeName;
+@dynamic title;
 
 @end
