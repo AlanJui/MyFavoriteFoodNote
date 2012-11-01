@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *address;
 
 @property (strong, nonatomic) UIImage *photoImage;
+@property UIToolbar *tb;
 
 - (IBAction)saveButtonPressed:(id)sender;
 - (IBAction)takePhotoButtonPressed:(id)sender;

@@ -243,7 +243,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                                     </textView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="照片：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TYm-ij-Ve5">
                                         <rect key="frame" x="23" y="146" width="51" height="21"/>
@@ -454,15 +454,12 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TakePhotoViewController.h"/>
             <relationships>
                 <relationship kind="action" name="returnButtonTapped:"/>
-                <relationship kind="action" name="takePhoto:"/>
                 <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="UpdateViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UpdateViewController.h"/>
             <relationships>
-                <relationship kind="action" name="doneButtonTapped:"/>
-                <relationship kind="action" name="saveButtonPressed:"/>
                 <relationship kind="outlet" name="address" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="introduction" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="noteDate" candidateClass="UILabel"/>
